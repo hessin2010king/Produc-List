@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PRODUCTS } from '../product-data';
 import { Product } from '../product.model';
+import { CartService } from '../cart.service';
+import { CartItem } from '../cart-item.model';
 
 @Component({
   selector: 'app-product-details',
@@ -11,21 +13,40 @@ import { Product } from '../product.model';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    const id = Number(this.route.snapshot.paramMap.get('id')); // Convert id to a number
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: CartService
+  ) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.product = PRODUCTS.find(p => p.id === id);
   }
 
   goBack(): void {
-    this.router.navigate(['/']); // Adjust the route as needed
+    this.router.navigate(['/']);
   }
 
   addToCart(): void {
     if (this.product) {
-      console.log('Adding to cart:', this.product);
+      const cartItem: CartItem = {
+        name: this.product.title,
+        price: this.product.price,
+        thumbnail: this.product.thumbnail
+      };
+      this.cartService.addToCart(cartItem);
     }
+  }
+
+  getStars(rating: number): number[] {
+    return Array(Math.floor(rating)).fill(0);
+  }
+
+  getEmptyStars(rating: number): number[] {
+    return Array(5 - Math.floor(rating)).fill(0);
   }
 }

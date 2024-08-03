@@ -2,22 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .main-image img {
   width: 100%;
   max-width: 600px;
+  border-radius: 8px;
 }
 
-.image-slider {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+.stars {
+  font-size: 1.5em;
+  color: gold;
 }
 
-.image-slider .swiper-slide img {
-  width: 100%;
-  object-fit: cover;
+.star {
+  color: #ddd; /* Light color for empty stars */
+}
+
+.star.filled {
+  color: gold; /* Golden color for filled stars */
 }
 
 button {
