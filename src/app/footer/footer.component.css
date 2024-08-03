@@ -1,0 +1,40 @@
+/* footer.component.css */
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #333;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.social-links i {
+  font-size: 20px; /* Adjust icon size as needed */
+}

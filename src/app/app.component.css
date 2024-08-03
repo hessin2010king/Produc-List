@@ -1,0 +1,9 @@
+/* Add global styles here */
+/* app.component.css */
+/* Ensure the body or wrapper content starts below the fixed Header and Navbar */
+:host {
+    display: block;
+    padding-top: 200px; /* Adjust based on the combined height of Header (80px) and Navbar (40px) */
+    padding-bottom: 200px;
+    }
+  
