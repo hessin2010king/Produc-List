@@ -6,9 +6,15 @@
   padding: 20px;
 }
 
-.main-image img {
+.image-slider {
   width: 100%;
   max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.image-slider img {
+  width: 100%;
+  object-fit: cover;
   border-radius: 8px;
 }
 
