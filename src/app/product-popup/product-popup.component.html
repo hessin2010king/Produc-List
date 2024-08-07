@@ -1,0 +1,12 @@
+<div class="popup" *ngIf="visible">
+  <div class="popup-content" *ngIf="product">
+    <span class="close-button" (click)="closePopup()">&times;</span>
+    <h2>{{ product.title }}</h2>
+    <img [src]="product.thumbnail" alt="{{ product.title }}" />
+    <p>Price: {{ product.price | currency }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Brand: {{ product.brand }}</p>
+    <p>Rating: {{ product.rating }}</p>
+  </div>
+</div>

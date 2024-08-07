@@ -11,6 +11,14 @@
       <a routerLink="/profile" routerLinkActive="active-link">Profile</a>
     </li>
     <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
-    <li><a routerLink="/cart" routerLinkActive="active-link">Cart</a></li>
+    <li>
+      <a routerLink="/cart" routerLinkActive="active-link">
+        Cart
+        <i class="fa fa-shopping-cart"></i>
+        <span *ngIf="cartItemCount > 0" class="cart-count">{{
+          cartItemCount
+        }}</span>
+      </a>
+    </li>
   </ul>
 </nav>

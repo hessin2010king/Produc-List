@@ -1,4 +1,4 @@
-<div class="product-card">
+<div class="product-card" (click)="openProductPopup()">
   <img
     [src]="product.thumbnail"
     alt="{{ product.title }}"
@@ -30,10 +30,19 @@
       {{ product.stock > 0 ? "In Stock" : "Out of Stock" }}
     </p>
     <div class="product-actions">
-      <button [routerLink]="['/product', product.id]" class="details-button">
+      <button
+        [routerLink]="['/product', product.id]"
+        (click)="$event.stopPropagation()"
+        class="details-button"
+      >
         View Details
       </button>
-      <button (click)="addToCart()" class="cart-button">Add to Cart</button>
+      <button
+        (click)="addToCart(); $event.stopPropagation()"
+        class="cart-button"
+      >
+        Add to Cart
+      </button>
     </div>
   </div>
 </div>

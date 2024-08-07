@@ -2,5 +2,13 @@
   <app-product-card
     *ngFor="let product of products"
     [product]="product"
+    (openPopup)="openPopup($event)"
   ></app-product-card>
+
+  <app-product-popup
+    *ngIf="popupVisible && selectedProduct"
+    [product]="selectedProduct"
+    [visible]="popupVisible"
+    (close)="closePopup()"
+  ></app-product-popup>
 </div>
